@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+</head>
+<body>
+    {% for book in books %}
+        <h4>title {{ book.title }}</h4>
+        <h4>author {{ book.author }}</h4>
+        <h4>avg_rating {{ book.avg_rating }}</h4>
+        <p><a href="{{ url_for('main.display_publisher',publisher_id=book.pub_id) }}">Publisher Id :{{ book.pub_id }}</a></p>
+        <span class="label label-danger"><a href="{{ url_for('main.create_book',pub_id=book.pub_id) }}" style="color: floralwhite">Create</a></span>
+        <span class="label label-primary"><a href="{{ url_for('main.edit_book',bookid=book.id) }}" style="color: floralwhite">Edit</a></span>
+        <span class="label label-info"><a href="{{ url_for('main.delete_book',bookid=book.id) }}" style="color: floralwhite">Delete</a></span>
+    {% endfor %}
+</body>
+</html>
